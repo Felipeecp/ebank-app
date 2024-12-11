@@ -1,0 +1,41 @@
+<div class="login-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" type="email">
+          <mat-error *ngIf="loginForm.get('email')?.errors?.['required']">
+            Email é obrigatório
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('email')?.errors?.['email']">
+            Email é inválido
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Senha</mat-label>
+          <input matInput formControlName="password" type="password">
+          <mat-error *ngIf="loginForm.get('password')?.errors?.['required']">
+            Senha é obrigatório
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('password')?.errors?.['minlength']">
+            Senha deve ter no mínimo 6 caracteres
+          </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">
+          Entrar
+        </button>
+      </form>
+
+      <div class="rigister-link">
+        <a routerLink="/auth/register">Não tem uma conta? Registre-se</a>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
