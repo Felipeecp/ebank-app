@@ -1,9 +1,8 @@
-import { Injectable } from '@angular/core';
-import { environment } from '../../../../environments/enviroment';
 import { HttpClient } from '@angular/common/http';
-import { DepositRequest, DepositResponse, TransferRequest, TransferResponse } from '../models/transaction.models';
+import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
-import { Balance, Transaction, TransactionRequest } from '../models/transaction.models';
+import { environment } from '../../../../environments/enviroment';
+import { Balance, DepositRequest, DepositResponse, Transaction, TransferRequest, TransferResponse } from '../models/transaction.models';
 
 @Injectable({
   providedIn: 'root'

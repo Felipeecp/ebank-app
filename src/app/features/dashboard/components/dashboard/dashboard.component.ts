@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { firstValueFrom } from 'rxjs';
-import { AuthService } from '../../../auth/auth.service';
+import { AuthService } from '../../../auth/service/auth.service';
 import { AccountLimits } from '../../models/dashboard.models';
 import { DashboardService } from '../../service/dashboard.service';
 import { TransactionService } from '../../service/transaction.service';

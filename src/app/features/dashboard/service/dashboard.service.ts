@@ -1,8 +1,8 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { environment } from '../../../../environments/enviroment';
-import { AccountLimits, Statement} from '../models/dashboard.models';
+import { AccountLimits, Statement } from '../models/dashboard.models';
 
 @Injectable({
   providedIn: 'root'

@@ -43,4 +43,4 @@ Thumbs.db
 
 
 .env
-src/assets/env.js
+.env.local
