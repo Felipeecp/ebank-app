@@ -1,5 +1,8 @@
 # Banco Digital - Frontend
 
+## Acesso aplicação online
+https://ebank-app-mu.vercel.app/dashboard
+
 ## Descrição
 Interface web para sistema bancário desenvolvido em Angular 17. O sistema permite gerenciamento de contas, transações bancárias, consulta de extratos e administração de limite de crédito.
 
