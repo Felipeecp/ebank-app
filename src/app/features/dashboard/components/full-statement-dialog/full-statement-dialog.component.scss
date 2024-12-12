@@ -1,0 +1,64 @@
+.account-info {
+  margin-bottom: 20px;
+  padding: 16px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+
+  p {
+    margin: 8px 0;
+  }
+ }
+
+ .filter-form {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+
+  mat-form-field {
+    flex: 1;
+  }
+ }
+
+ .statement-table {
+  width: 100%;
+  margin-bottom: 20px;
+
+  .mat-cell {
+    padding: 8px;
+  }
+
+  .credit {
+    color: #4caf50;
+    font-weight: 500;
+  }
+
+  .debit {
+    color: #f44336;
+    font-weight: 500;
+  }
+
+  .related-account {
+    font-size: 0.85em;
+    color: #666;
+    margin-left: 8px;
+  }
+
+  .mat-row:hover {
+    background-color: #f5f5f5;
+  }
+ }
+
+ .loading-spinner {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+ }
+
+ ::ng-deep .mat-dialog-container {
+  padding: 24px;
+  max-height: 80vh;
+ }
+
+ ::ng-deep .mat-dialog-content {
+  max-height: calc(80vh - 120px);
+ }

@@ -1,23 +1,98 @@
-<div class="dashboard-container">
-  <div class="balance-section">
-    <app-balance-card [accountNumber]="accountNumber"></app-balance-card>
-  </div>
-
-  <div class="transactions-section">
-    <mat-card>
+<div class="dashboard-wrapper">
+  <div class="dashboard-container">
+    <!-- Seção do Cartão de Informações -->
+    <section class="info-section">
+      <mat-card class="info-card">
         <mat-card-header>
-            <mat-card-title>Extrato Recente</mat-card-title>
-            <button mat-button color="primary" (click)="openTransactionList()">
-              Ver Completo
-            </button>
+          <mat-card-title>Resumo da Conta</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <app-recent-transactions [accountNumber]="accountNumber"></app-recent-transactions>
+          <div class="account-info-grid">
+            <div class="info-item user-info">
+              <span class="info-label">Titular</span>
+              <span class="info-value user-name">{{authService.getCurrentUser()?.name}}</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Saldo em Conta</span>
+              <span class="info-value" [class.negative]="accountLimits?.balance! < 0">
+                R$ {{accountLimits?.balance | number:'1.2-2'}}
+              </span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Limite de Crédito</span>
+              <span class="info-value">
+                R$ {{accountLimits?.creditLimit | number:'1.2-2'}}
+              </span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Crédito Disponível</span>
+              <span class="info-value">
+                R$ {{accountLimits?.availableCredit | number:'1.2-2'}}
+              </span>
+            </div>
+            <div class="info-item total">
+              <span class="info-label">Total Disponível</span>
+              <span class="info-value">
+                R$ {{accountLimits?.totalAvailable | number:'1.2-2'}}
+              </span>
+            </div>
+          </div>
         </mat-card-content>
-    </mat-card>
+      </mat-card>
+    </section>
+
+    <!-- Seção de Operações -->
+    <section class="operations-section">
+      <div class="operations-grid">
+        <!-- Depósito -->
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              <mat-icon>savings</mat-icon>
+              Depositar
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <app-deposit-form [accountNumber]="accountNumber" (depositSuccess)="onDepositSuccess($event)">
+            </app-deposit-form>
+          </mat-card-content>
+        </mat-card>
+
+        <!-- Transferência -->
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              <mat-icon>swap_horiz</mat-icon>
+              Transferir
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <app-transfer-form [accountNumber]="accountNumber" [availableBalance]="accountLimits?.balance || 0" [availableCredit]="accountLimits?.availableCredit || 0" (transferSuccess)="onTransferSuccess()">
+            </app-transfer-form>
+          </mat-card-content>
+        </mat-card>
+
+        <!-- Limite de Crédito -->
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              <mat-icon>credit_card</mat-icon>
+              Limite de Crédito
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <app-credit-limit-form [accountNumber]="accountNumber" [currentLimit]="accountLimits?.creditLimit || 0" (limitUpdated)="onCreditLimitUpdate()">
+            </app-credit-limit-form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </section>
+
+    <!-- Seção de Extrato -->
+    <section class="transactions-section">
+      <app-recent-statement [accountNumber]="accountNumber">
+      </app-recent-statement>
+    </section>
   </div>
 
-  <div class="transaction-form-section">
-    <app-transaction-form [accountNumber]="accountNumber"></app-transaction-form>
-  </div>
 </div>

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TransactionFormComponent } from './transaction-form.component';
+import { RecentStatementComponent } from './recent-statement.component';
 
-describe('TransactionFormComponent', () => {
-  let component: TransactionFormComponent;
-  let fixture: ComponentFixture<TransactionFormComponent>;
+describe('RecentStatementComponent', () => {
+  let component: RecentStatementComponent;
+  let fixture: ComponentFixture<RecentStatementComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TransactionFormComponent]
+      declarations: [RecentStatementComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(TransactionFormComponent);
+    fixture = TestBed.createComponent(RecentStatementComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

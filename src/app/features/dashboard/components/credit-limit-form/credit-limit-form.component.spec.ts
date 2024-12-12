@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BalanceCardComponent } from './balance-card.component';
+import { CreditLimitFormComponent } from './credit-limit-form.component';
 
-describe('BalanceCardComponent', () => {
-  let component: BalanceCardComponent;
-  let fixture: ComponentFixture<BalanceCardComponent>;
+describe('CreditLimitFormComponent', () => {
+  let component: CreditLimitFormComponent;
+  let fixture: ComponentFixture<CreditLimitFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [BalanceCardComponent]
+      declarations: [CreditLimitFormComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(BalanceCardComponent);
+    fixture = TestBed.createComponent(CreditLimitFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

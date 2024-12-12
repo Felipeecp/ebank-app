@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { AuthResponse, LoginCredentials, RegisterData } from './models/auth.model';
 import { response } from 'express';
 import { environment } from '../../../environments/enviroment';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class AuthService {
   private currentUserSubject = new BehaviorSubject<AuthResponse | null>(null);
   currentUser$ = this.currentUserSubject.asObservable();
 
-  constructor(private http:HttpClient) {
+  constructor(private http:HttpClient, private router: Router) {
     const savedUser = localStorage.getItem("currentUser");
     if(savedUser){
       this.currentUserSubject.next(JSON.parse(savedUser));
@@ -37,6 +38,7 @@ export class AuthService {
    logout(){
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
+    this.router.navigate(['/auth/login'])
    }
 
    isAuthenticated(): boolean{

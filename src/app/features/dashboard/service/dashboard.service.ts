@@ -1,33 +1,48 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { environment } from '../../../../environments/enviroment';
-import { Balance, Transaction, TransactionRequest } from '../models/dashboard.models';
+import { AccountLimits, Statement} from '../models/dashboard.models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardService {
-  private readonly API_URL = environment.apiUrl
+  private readonly API_URL = `${environment.apiUrl}/accounts`;
 
   constructor(private http: HttpClient){}
 
-  getBalance(accountNumber: string): Observable<Balance> {
-    console.log('Fazendo requisição para:', `${this.API_URL}/transactions/balance/${accountNumber}`);
-    return this.http.get<Balance>(`${this.API_URL}/transactions/balance/${accountNumber}`)
-      .pipe(
-        tap({
-          next: (response) => console.log('Resposta recebida:', response),
-          error: (error) => console.error('Erro na requisição:', error)
-        })
-      );
+  getAccountLimits(accountNumber: string): Observable<AccountLimits>{
+    return this.http.get<AccountLimits>(`${this.API_URL}/${accountNumber}/limits`);
   }
 
-  getTransaction(accountNumber: string): Observable<Transaction[]>{
-    return this.http.get<Transaction[]>(`${this.API_URL}/transactions/${accountNumber}`);
+  updateCreditLimit(accountNumber: string, newCreditLimit: number): Observable<any>{
+    return this.http.put(`${this.API_URL}/credit-limit`,{
+      accountNumber,
+      newCreditLimit
+    });
   }
 
-  createTransaction(transaction: TransactionRequest): Observable<void>{
-    return this.http.post<void>(`${this.API_URL}/transactions`, transaction);
+  getAvailableAccounts():Observable<any[]>{
+    return this.http.get<any[]>(`${this.API_URL}/available`)
+  }
+
+  getStatement(
+    accountNumber: string,
+    startDate?: string,
+    endDate?: string
+  ): Observable<Statement>{
+    let params = new HttpParams();
+    if(startDate){
+      params = params.set('startDate', startDate);
+    }
+    if(endDate){
+      params = params.set('endDate', endDate);
+    }
+
+    return this.http.get<Statement>(
+      `${this.API_URL}/${accountNumber}/statement`,
+      {params}
+    );
   }
 }

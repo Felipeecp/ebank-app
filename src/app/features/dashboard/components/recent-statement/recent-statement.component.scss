@@ -1,0 +1,50 @@
+mat-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+.statement-table {
+  width: 100%;
+
+  .mat-cell {
+    padding: 8px;
+  }
+
+  .credit {
+    color: #4caf50;
+    font-weight: 500;
+  }
+
+  .debit {
+    color: #f44336;
+    font-weight: 500;
+  }
+
+  .related-account {
+    font-size: 0.85em;
+    color: #666;
+    margin-left: 8px;
+  }
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.no-transactions {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}
+
+

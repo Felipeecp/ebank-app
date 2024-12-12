@@ -7,6 +7,11 @@ import { AuthService } from './features/auth/auth.service';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'ebank-app';
+  currentYear = new Date().getFullYear();
+
   constructor(public authService: AuthService){}
+
+  logout():void{
+    this.authService.logout();
+  }
 }
