@@ -1,27 +1,118 @@
-# EbankApp
+# Banco Digital - Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.11.
+## Descrição
+Interface web para sistema bancário desenvolvido em Angular 17. O sistema permite gerenciamento de contas, transações bancárias, consulta de extratos e administração de limite de crédito.
 
-## Development server
+## Funcionalidades Principais
+- Autenticação de usuários
+- Visualização de saldo e limites
+- Depósitos
+- Transferências entre contas
+- Gerenciamento de limite de crédito
+- Extrato bancário com filtros por data
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Tecnologias Utilizadas
+- Angular 17
+- Angular Material
+- RxJS
+- TypeScript
+- SCSS
 
-## Code scaffolding
+## Pré-requisitos
+- Node.js (versão 18 ou superior)
+- NPM (versão 9 ou superior)
+- Angular CLI (versão 17)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Instalação
+1. Clone o repositório:
+```bash
+git clone [URL_DO_REPOSITÓRIO]
+```
 
-## Build
+2. Instale as dependências:
+```bash
+cd banco-digital-frontend
+npm install
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+3. Configure as variáveis de ambiente:
+   - Copie o arquivo `.env.example` para `.env`
+   - Ajuste as variáveis conforme necessário
 
-## Running unit tests
+4. Inicie o servidor de desenvolvimento:
+```bash
+ng serve
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+5. Acesse `http://localhost:4200` no navegador
 
-## Running end-to-end tests
+## Estrutura do Projeto
+```
+src/
+├── app/
+│   ├── core/                    # Serviços e guardas globais
+│   ├── features/               # Módulos funcionais
+│   │   ├── auth/              # Autenticação
+│   │   └── dashboard/         # Dashboard principal
+│   └── shared/                # Componentes compartilhados
+├── assets/                    # Recursos estáticos
+└── environments/              # Configurações por ambiente
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Módulos Principais
 
-## Further help
+### Autenticação
+- Login
+- Registro
+- Guarda de rotas
+- Interceptor JWT
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Dashboard
+- Resumo da conta
+- Operações bancárias
+- Extrato de transações
+- Gestão de limite de crédito
+
+## Endpoints da API
+
+### Autenticação
+- POST `/api/auth/login`
+- POST `/api/auth/register`
+
+### Transações
+- GET `/api/transactions/balance/{accountNumber}`
+- POST `/api/transactions/deposit`
+- POST `/api/transactions/transfer`
+- GET `/api/accounts/{accountNumber}/statement`
+
+## Scripts Disponíveis
+- `ng serve`: Inicia o servidor de desenvolvimento
+- `ng build`: Gera build de produção
+
+## Ambiente de Produção
+1. Gere o build de produção:
+```bash
+ng build --configuration production
+```
+
+2. Os arquivos serão gerados no diretório `dist/`
+
+## Troubleshooting
+### Problemas Comuns
+1. **Erro de CORS**
+   - Verifique a configuração do backend
+   - Confirme as URLs no ambiente
+
+2. **Problemas de Autenticação**
+   - Verifique se o token está sendo enviado
+   - Confirme se o token não expirou
+
+3. **Erros de Build**
+   - Limpe o cache: `npm cache clean --force`
+   - Reinstale as dependências
+
+## Licença
+Este projeto está sob a licença [MIT](LICENSE).
+
+## Status do Projeto
+Em desenvolvimento ativo.
