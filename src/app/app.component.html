@@ -1,12 +1,15 @@
 <div class="app-container">
-  <mat-toolbar color="primary" *ngIf="authService.isAuthenticated()">
+  <!-- Header/Toolbar -->
+  <mat-toolbar color="primary">
     <div class="toolbar-content">
       <div class="left-section">
         <span class="brand">Banco Digital</span>
-        <button mat-button routerLink="/dashboard">Dashboard</button>
+        <button mat-button routerLink="/dashboard" *ngIf="authService.isAuthenticated()">
+          Dashboard
+        </button>
       </div>
 
-      <div class="right-section">
+      <div class="right-section" *ngIf="authService.isAuthenticated()">
         <span class="user-name">{{authService.getCurrentUser()?.name}}</span>
         <button mat-icon-button (click)="logout()" matTooltip="Sair">
           <mat-icon>exit_to_app</mat-icon>
@@ -15,10 +18,12 @@
     </div>
   </mat-toolbar>
 
+  <!-- Main Content -->
   <main>
     <router-outlet></router-outlet>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <p>&copy; {{currentYear}} Banco Digital. Todos os direitos reservados.</p>
