@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
-import { environment } from '../../../../environments/enviroment';
+import { environment } from '../../../../environments/environment';
 import { Balance, DepositRequest, DepositResponse, Transaction, TransferRequest, TransferResponse } from '../models/transaction.models';
 
 @Injectable({
