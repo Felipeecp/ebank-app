@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
-import { environment } from '../../../../environments/environment';
 import { Balance, DepositRequest, DepositResponse, Transaction, TransferRequest, TransferResponse } from '../models/transaction.models';
+import { environment } from '@environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TransactionService {
-  private readonly API_URL = `${environment.apiUrl}/transactions`;
+  private readonly API_URL = `${environment.NG_APP_API_URL}/transactions`;
 
   constructor(private http:HttpClient) { }
 

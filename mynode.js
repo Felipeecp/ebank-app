@@ -5,8 +5,7 @@ const checkSign = '\u{2705}';
 const dotenv = require('dotenv').config({path: 'src/.env'}); ;
 
 const envFile = `export const environment = {
-    VARIABLE_NAME: '${process.env.VARIABLE_NAME}',
-    OTHER_VARIABLE_NAME: '${process.env.OTHER_VARIABLE_NAME}',
+    NG_APP_API_URL: '${process.env.NG_APP_API_URL}',
 };
 `;
 const targetPath = path.join(__dirname, './src/environments/environment.development.ts');

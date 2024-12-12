@@ -1,14 +1,14 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '@environments/environment.development';
 import { Observable } from 'rxjs';
-import { environment } from '../../../../environments/environment';
 import { AccountLimits, Statement } from '../models/dashboard.models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardService {
-  private readonly API_URL = `${environment.apiUrl}/accounts`;
+  private readonly API_URL = `${environment.NG_APP_API_URL}/accounts`;
 
   constructor(private http: HttpClient){}
 
