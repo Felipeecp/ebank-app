@@ -1,0 +1,12 @@
+.dashboard-container{
+  padding: 20px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.balance-section,
+.transaction-section,
+.transaction-form-section{
+  min-width: 300px;
+}

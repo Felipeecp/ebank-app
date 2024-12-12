@@ -1,0 +1,43 @@
+.credit{
+  color: #4caf50;
+  font-weight: 500;
+}
+
+.debit{
+  color: #f44336;
+  font-weight: 500;
+}
+
+mat-card{
+  margin-bottom: 20px;
+}
+
+.transaction-form-section{
+  form{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+
+    mat-form-field{
+      width: 100%;
+    }
+
+    button{
+      align-items: flex-end;
+    }
+  }
+}
+
+.recent-transactions-table{
+  width: 100%;
+
+  th.mat-header-cell{
+    font-weight: bold;
+    color: rgba(0,0,0,0.87);
+  }
+
+  .mat-row:hover{
+    background-color: rgba(0,0,0,0.04);
+  }
+}

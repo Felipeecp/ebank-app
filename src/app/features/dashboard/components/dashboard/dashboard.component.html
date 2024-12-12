@@ -1,1 +1,23 @@
-<p>dashboard works!</p>
+<div class="dashboard-container">
+  <div class="balance-section">
+    <app-balance-card [accountNumber]="accountNumber"></app-balance-card>
+  </div>
+
+  <div class="transactions-section">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Extrato Recente</mat-card-title>
+            <button mat-button color="primary" (click)="openTransactionList()">
+              Ver Completo
+            </button>
+        </mat-card-header>
+        <mat-card-content>
+            <app-recent-transactions [accountNumber]="accountNumber"></app-recent-transactions>
+        </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="transaction-form-section">
+    <app-transaction-form [accountNumber]="accountNumber"></app-transaction-form>
+  </div>
+</div>

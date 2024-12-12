@@ -1,0 +1,17 @@
+.balance-card{
+  .balance-info{
+    text-align: center;
+    padding: 20px 0;
+
+    .amount{
+      font-size: 2em;
+      font-weight: bold;
+      color: #1976d2;
+      margin: 20px 0;
+    }
+
+    .account, .name{
+      color: #666;
+    }
+  }
+}

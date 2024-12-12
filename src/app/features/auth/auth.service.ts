@@ -46,4 +46,12 @@ export class AuthService {
    getAuthToken(): string | null{
     return this.currentUserSubject.value?.token || null;
   }
+
+  getCurrentUser(): AuthResponse|null {
+    return this.currentUserSubject.value;
+  }
+
+  getCurrentUser$(): Observable<AuthResponse | null> {
+    return this.currentUser$;
+  }
 }

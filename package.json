@@ -7,7 +7,6 @@
     "build": "npm run config && ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:ebank-app": "node dist/ebank-app/server/server.mjs",
     "config": "node ./scripts/set-env.js",
     "build:prod": "npm run config && ng build --configuration=production"
   },
@@ -24,9 +23,7 @@
     "@angular/platform-browser-dynamic": "^17.3.0",
     "@angular/platform-server": "^17.3.0",
     "@angular/router": "^17.3.0",
-    "@angular/ssr": "^17.3.11",
     "ebank-app": "file:",
-    "express": "^4.18.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
