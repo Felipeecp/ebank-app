@@ -59,6 +59,27 @@ src/
 └── environments/              # Configurações por ambiente
 ```
 
+## Screenshots
+
+### Login
+![Tela de Login](./src/assets/images/login.png)
+*Tela de login*
+
+### Registro
+![Tela de Registro](./src/assets/images/registro.png)
+*Tela de registro*
+
+### Dashboard
+![Dashboard Principal](./src/assets/images/dashboard.png)
+*Dashboard com resumo da conta e operações disponíveis*
+
+![Dashboard Principal](./src/assets/images/dashboard2.png)
+*Dashboard sessão de extrato*
+
+### Extrato
+![Extrato Bancário](./src/assets/images/extrato.png)
+*Visualização detalhada do extrato com filtros por data*
+
 ## Módulos Principais
 
 ### Autenticação
@@ -94,7 +115,6 @@ src/
 ```bash
 ng build --configuration production
 ```
-
 2. Os arquivos serão gerados no diretório `dist/`
 
 ## Troubleshooting
