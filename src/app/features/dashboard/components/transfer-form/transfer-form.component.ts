@@ -29,7 +29,12 @@ export class TransferFormComponent implements OnInit {
     this.transferForm = this.fb.group({
       toAccountNumber: ['',Validators.required],
       type: ['DEBIT', Validators.required],
-      amount: ['',[Validators.required, Validators.min(0.01)]]
+      amount: ['',[
+        Validators.required,
+        Validators.min(0.01),
+        Validators.max(this.availableBalance)
+        ]
+      ]
     });
   }
 
